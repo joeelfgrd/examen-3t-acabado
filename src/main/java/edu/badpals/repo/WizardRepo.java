@@ -7,6 +7,6 @@ import edu.badpals.Objects.MagicalItem;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 @ApplicationScoped
-public class PersonRepo implements PanacheRepository<MagicalItem> {
+public class WizardRepo implements PanacheRepository<MagicalItem> {
     
 }
