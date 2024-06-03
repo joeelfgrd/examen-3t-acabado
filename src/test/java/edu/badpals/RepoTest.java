@@ -5,7 +5,10 @@ import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
+import edu.badpals.Objects.MagicalItem;
+import edu.badpals.Objects.Order;
+import edu.badpals.Objects.Wizard;
+import edu.badpals.repo.Repositorio;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.persistence.PersistenceContext;

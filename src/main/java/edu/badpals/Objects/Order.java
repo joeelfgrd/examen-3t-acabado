@@ -1,4 +1,4 @@
-package edu.badpals;
+package edu.badpals.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
