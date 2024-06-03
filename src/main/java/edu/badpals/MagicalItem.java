@@ -54,11 +54,15 @@ public class MagicalItem extends PanacheEntityBase {
     }
     @Override
     public String toString() {
-    return "MagicalItem{" +
-        "id=" + id +
-        ", nombre='" + name + '\'' +
-        ", quality=" + quality +
-        ", tipo='" + tipo + '\'' +
-        '}';
-}
+        StringBuilder itm = new StringBuilder();
+        itm.append("MagicalItem{")
+            .append("id=").append(id)
+            .append(", name='").append(name).append('\'')
+            .append(", quality=").append(quality)
+            .append(", tipo='").append(tipo).append('\'')
+            .append('}');
+        return itm.toString();
+    }
+    
+
 }
