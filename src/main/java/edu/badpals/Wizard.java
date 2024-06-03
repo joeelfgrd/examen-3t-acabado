@@ -40,12 +40,15 @@ public class Wizard extends PanacheEntityBase {
 
     @Override
     public String toString() {
-        return "Wizard{" +
-            "name='" + name + '\'' +
-            ", dexterity=" + dexterity +
-            ",wizard_person=" + person +
-            '}';
+       StringBuilder wzrd = new StringBuilder();
+         wzrd.append("Wizard{")
+              .append("name=").append(name)
+              .append(", dexterity=").append(dexterity)
+              .append(", person=").append(person)
+              .append('}');
+            return wzrd.toString();
     }
+        
 
     public boolean isMudblood() {
         return person == PersonType.MUDBLOOD;
