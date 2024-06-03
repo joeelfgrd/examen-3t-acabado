@@ -47,4 +47,5 @@ public class MagicalItem {
                 .append('}');
         return itm.toString();
     }
+    
 }
