@@ -6,37 +6,27 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
-@Entity
-@Table(name = "t_wizards")
-public class Wizard extends PanacheEntityBase {
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+    @Entity
+    @Table(name="t_wizards")
+    @NoArgsConstructor 
+    public class Wizard {
+    
     @Id
-    @Column(name = "wizard_name")
-    public String name;
+	@Column(name="wizard_name")
+	private @Getter String name;
+	
+	@Column(name="wizard_dexterity")
+	private @Getter @Setter int dexterity;
 
-    @Column(name = "wizard_dexterity")
-    public int dexterity;
-
-    public enum PersonType {
-        MUGGLE, SQUIB, NOMAJ, MUDBLOOD
-    }
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "wizard_person")
-    public PersonType person;
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPerson() {
-        return person.toString();
-    }
-
-    public int getDexterity() {
-        return dexterity;
-    }
+	@Column(name = "wizard_person")
+	@Enumerated(EnumType.STRING)
+	private @Getter @Setter Person person;
 
     @Override
     public String toString() {
@@ -50,7 +40,5 @@ public class Wizard extends PanacheEntityBase {
     }
         
 
-    public boolean isMudblood() {
-        return person == PersonType.MUDBLOOD;
-    }
+    
 }
