@@ -45,11 +45,13 @@ public class Order extends PanacheEntityBase {
     }
     @Override
     public String toString() {
-        return "Order{" +
-            "id=" + id +
-            ", wizard=" + wizard +
-            ", item=" + item +
-            '}';
+        StringBuilder ordr = new StringBuilder();
+        ordr.append("Order{")
+            .append("id=").append(id)
+            .append(", wizard=").append(wizard)
+            .append(", item=").append(item)
+            .append('}');
+        return ordr.toString();
     }
 }
 
