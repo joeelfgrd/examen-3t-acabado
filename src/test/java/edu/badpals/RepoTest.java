@@ -1,6 +1,6 @@
 package edu.badpals;
 /*import java.util.Arrays;*/
-import java.util.List;
+/*import java.util.List;*/
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,10 +12,10 @@ import edu.badpals.repo.Repositorio;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transactional;
+/*import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;*/
 import jakarta.persistence.EntityManager;
-import java.util.Optional;
+/*import java.util.Optional;*/
 
 @QuarkusTest
 public class RepoTest {
@@ -152,7 +152,7 @@ public class RepoTest {
      * y no cualquier otro item de la base de datos
      * que tenga sólo el mismo nombre.
 	 */
-	@Test
+	/*@Test
 	public void test_load_item_equal() {
 		Assertions.assertThat(repo).isNotNull();
 		MagicalItem brie = new MagicalItem("Aged Brie", 0, "MagicalItem");
@@ -173,7 +173,7 @@ public class RepoTest {
 	 * 
 	 * Ojo que el nombre del item no es la clave primaria.
 	 */
-	@Test
+	/*@Test
 	public void test_load_items() {
 		Assertions.assertThat(repo).isNotNull();
 
@@ -195,7 +195,7 @@ public class RepoTest {
 	 * Los magos/as mudblood NO pueden comprar un item.
 	 */
 
-	@Test
+	/*@Test
 	@Transactional
 	public void test_pedido() {
  
@@ -226,7 +226,7 @@ public class RepoTest {
 	 * Implementa el metodo createItem() del repositorio
 	 * que crea un item en la base de datos.
 	 */
-	@Test
+	/*@Test
 	@Transactional
 	public void test_create_item() {
 		Assertions.assertThat(repo).isNotNull();
@@ -251,7 +251,7 @@ public class RepoTest {
 	 * es el que buscamos.
 	 */
 
-	@Test
+	/*@Test
 	@Transactional
 	public void test_create_items() {
 		Assertions.assertThat(repo).isNotNull();

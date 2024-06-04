@@ -12,12 +12,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-    @Entity
-    @Table(name="t_wizards")
-    @NoArgsConstructor 
-    public class Wizard {
+@Entity
+@Table(name="t_wizards")
+@NoArgsConstructor 
+
+public class Wizard {
     
-    @Id
+  @Id
 	@Column(name="wizard_name")
 	private @Getter String name;
 	
