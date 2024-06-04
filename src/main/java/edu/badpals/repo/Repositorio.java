@@ -9,7 +9,6 @@ import edu.badpals.Objects.MagicalItem;
 import edu.badpals.Objects.Order;
 import edu.badpals.Objects.Person;
 import edu.badpals.Objects.Wizard;
-import io.quarkus.hibernate.orm.panache.PanacheQuery;
 
 
 @ApplicationScoped
@@ -65,15 +64,13 @@ public class Repositorio {
         this.ItemRepo.persist(items);
     }
     @Transactional
-    public void deleteItem(MagicalItem item) {
-        PanacheQuery<MagicalItem> targetQuery = this.ItemRepo.find("name = ?1 and quality = ?2 and type = ?3", item.getName(), item.getQuality(), item.getType());
-        Optional<MagicalItem> resultQuery = targetQuery.firstResultOptional();
-
-        if (resultQuery.isPresent()) {
-            this.ItemRepo.delete(resultQuery.get());
+        public void deleteItem(MagicalItem item){
+                Optional<MagicalItem> itemToDelete = loadItem(item);
+                if (itemToDelete.isPresent()){
+                        this.ItemRepo.delete(itemToDelete.get());
+                }
         }
-    }
-    
+
 }
 
     
