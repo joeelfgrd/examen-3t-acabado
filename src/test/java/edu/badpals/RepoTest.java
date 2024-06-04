@@ -225,7 +225,7 @@ public class RepoTest {
 	 * Implementa el metodo createItem() del repositorio
 	 * que crea un item en la base de datos.
 	 */
-	/*@Test
+	@Test
 	@Transactional
 	public void test_create_item() {
 		Assertions.assertThat(repo).isNotNull();
@@ -250,7 +250,7 @@ public class RepoTest {
 	 * es el que buscamos.
 	 */
 
-	/*@Test
+	@Test
 	@Transactional
 	public void test_create_items() {
 		Assertions.assertThat(repo).isNotNull();
@@ -291,7 +291,7 @@ public class RepoTest {
      * y no cualquier otro item de la base de datos
      * solo con el mismo nombre.
      */
-	/*@Test
+	@Test
 	@Transactional
 	public void test_delete_item() {
 		Assertions.assertThat(repo).isNotNull();

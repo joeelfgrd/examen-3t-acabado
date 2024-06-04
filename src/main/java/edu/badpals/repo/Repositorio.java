@@ -4,10 +4,12 @@ import java.util.List;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import edu.badpals.Objects.MagicalItem;
 import edu.badpals.Objects.Order;
 import edu.badpals.Objects.Person;
 import edu.badpals.Objects.Wizard;
+import io.quarkus.hibernate.orm.panache.PanacheQuery;
 
 
 @ApplicationScoped
@@ -41,7 +43,7 @@ public class Repositorio {
         && i.getType().equals(item.getType()))
         .findFirst();
     }
-
+    @Transactional
     public Optional<Order> placeOrder(String wizard_name, String item_name) {
         Optional<Wizard> wizard = this.loadWizard(wizard_name);
         Optional<MagicalItem> item = this.loadItem(item_name);
@@ -53,5 +55,26 @@ public class Repositorio {
             return Optional.empty();
         }
     }
+    @Transactional
+    public void createItem(String name, int quality, String type) {
+        MagicalItem item = new MagicalItem(name, quality, type);
+        this.ItemRepo.persist(item);
+    }
+    @Transactional
+    public void createItems(List<MagicalItem> items) {
+        this.ItemRepo.persist(items);
+    }
+    @Transactional
+    public void deleteItem(MagicalItem item) {
+        PanacheQuery<MagicalItem> targetQuery = this.ItemRepo.find("name = ?1 and quality = ?2 and type = ?3", item.getName(), item.getQuality(), item.getType());
+        Optional<MagicalItem> resultQuery = targetQuery.firstResultOptional();
+
+        if (resultQuery.isPresent()) {
+            this.ItemRepo.delete(resultQuery.get());
+        }
+    }
+    
 }
+
+    
     
