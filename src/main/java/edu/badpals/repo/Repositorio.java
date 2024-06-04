@@ -5,7 +5,8 @@ import java.util.List;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import edu.badpals.Objects.MagicalItem;
-
+import edu.badpals.Objects.Order;
+import edu.badpals.Objects.Person;
 import edu.badpals.Objects.Wizard;
 
 
@@ -41,5 +42,16 @@ public class Repositorio {
         .findFirst();
     }
 
-    
+    public Optional<Order> placeOrder(String wizard_name, String item_name) {
+        Optional<Wizard> wizard = this.loadWizard(wizard_name);
+        Optional<MagicalItem> item = this.loadItem(item_name);
+        if (wizard.isPresent() && item.isPresent() && ! wizard.get().getPerson().equals(Person.MUDBLOOD)) {
+            Order order = new Order(wizard.get(), item.get());
+            this.repoOrder.persist(order);
+            return Optional.of(order);
+        } else {
+            return Optional.empty();
+        }
+    }
 }
+    

@@ -9,7 +9,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,12 +17,16 @@ import lombok.Setter;
 
 @Entity
 @Table(name="t_orders")
-@NoArgsConstructor  @EqualsAndHashCode
+@NoArgsConstructor  @EqualsAndHashCode 
 public class Order {
     
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ord_id")
     private @Getter Long id; 
+    public Order(Wizard wizard, MagicalItem item) {
+        this.wizard = wizard;
+        this.item = item;
+    }
     
     @ManyToOne
 	@JoinColumn(name="ord_wizard")

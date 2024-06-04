@@ -1,5 +1,5 @@
 package edu.badpals;
-/*import java.util.Arrays;*/
+import java.util.Arrays;
 import java.util.List;
 
 import org.assertj.core.api.Assertions;
@@ -12,10 +12,10 @@ import edu.badpals.repo.Repositorio;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.persistence.PersistenceContext;
-/*import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transactional;*/
+import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import jakarta.persistence.EntityManager;
-/*import java.util.Optional;*/
+import java.util.Optional;
 
 @QuarkusTest
 public class RepoTest {
@@ -152,8 +152,7 @@ public class RepoTest {
      * y no cualquier otro item de la base de datos
      * que tenga sólo el mismo nombre.
 	 */
-	/*@Test
-	public void test_load_item_equal() {
+	@Test public void test_load_item_equal() {
 		Assertions.assertThat(repo).isNotNull();
 		MagicalItem brie = new MagicalItem("Aged Brie", 0, "MagicalItem");
 		MagicalItem item = repo.loadItem(brie).get();
@@ -195,7 +194,7 @@ public class RepoTest {
 	 * Los magos/as mudblood NO pueden comprar un item.
 	 */
 
-	/*@Test
+	@Test
 	@Transactional
 	public void test_pedido() {
  
