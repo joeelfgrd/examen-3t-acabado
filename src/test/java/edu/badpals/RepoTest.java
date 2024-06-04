@@ -1,6 +1,6 @@
 package edu.badpals;
 /*import java.util.Arrays;*/
-/*import java.util.List;*/
+import java.util.List;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -173,7 +173,7 @@ public class RepoTest {
 	 * 
 	 * Ojo que el nombre del item no es la clave primaria.
 	 */
-	/*@Test
+	@Test
 	public void test_load_items() {
 		Assertions.assertThat(repo).isNotNull();
 
